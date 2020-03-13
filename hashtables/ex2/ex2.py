@@ -14,10 +14,13 @@ def reconstruct_trip(tickets, length):
     """
     YOUR CODE HERE
     """
+    last_key = "NONE"
+    
     # Insert locations on hash table
     for location in range(0, len(tickets)):
         hash_table_insert(hashtable, tickets[location].source, tickets[location].destination)
-    last_key = "NONE"
+    
+    # loop through and set the next destinatin on the list
     for location in range(0, len(route)):
         found = hash_table_retrieve(hashtable, last_key)
         if found is not None and found is not "NONE":
